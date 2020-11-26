@@ -6,7 +6,7 @@ name: 京豆昨日收益
 on:
     workflow_dispatch:
     schedule:
-        - cron: "30 0 * * *"
+        - cron: "0 23 * * *"
     watch:
         types: [started]
     repository_dispatch:
