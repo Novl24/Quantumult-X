@@ -22,7 +22,7 @@ jobs:
     steps:
       - name: Checkout
         run: |
-          git clone https://github.com/ziye12/JavaScript.git ~/MyActions
+          git clone https://github.com/Novl24/MyActions.git ~/MyActions
       - name: Use Node.js 12.x
         uses: actions/setup-node@v1
         with:
