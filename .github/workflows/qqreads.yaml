@@ -22,7 +22,7 @@ jobs:
     steps:
       - name: Checkout
         run: |
-          git clone https://github.com/ziye12/JavaScript.git ~/JavaScript
+          git clone https://github.com/ziye12/JavaScript.git ~/MyActions
       - name: Use Node.js 12.x
         uses: actions/setup-node@v1
         with:
@@ -30,12 +30,12 @@ jobs:
       - name: npm install
         if: env.QQREAD_HEADER
         run: |
-          cd ~/JavaScript
+          cd ~/MyActions
           npm install
       - name: '运行 【企鹅读书】'
         if: env.QQREAD_HEADER
         run: |
-          cd ~/JavaScript
+          cd ~/MyActions
           node Script/qqreads.js
         env:
           
