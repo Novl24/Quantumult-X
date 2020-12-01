@@ -27,12 +27,12 @@ jobs:
                   npm install
             - name: "运行 【qq阅读】"
               run: |
-                  node onlyOneExecute.js
+                  node Script/qqreads.js
               env:
                   QQREAD_HEADER: ${{ secrets.QQREAD_HEADER }}
                   QQREAD_TIMEURL: ${{ secrets.QQREAD_TIMEURL }}
                   QQREAD_TIMEHD: ${{ secrets.QQREAD_TIMEHD }}
                   TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
                   TG_USER_ID: ${{ secrets.TG_USER_ID }}
-                  SYNCURL: https://github.com/ziye12/JavaScript/raw/master/Task/qqreads.js
+                  
 
