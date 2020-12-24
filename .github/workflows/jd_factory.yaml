@@ -25,7 +25,7 @@ jobs:
             - name: npm install
               run: |
                   npm install
-            - name: "运行 【工厂】"
+            - name: "运行 【京东工厂】"
               run: |
                   node onlyOneExecute.js
               env:
