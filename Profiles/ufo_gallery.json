@@ -1,0 +1,15 @@
+{
+ "name": "UFO task gallery",
+ "description": "https://github.com/dajijiyangmao",
+ "task": [
+    "2 9 * * * https://github.com/dajijiyangmao/UFO/raw/main/HAOYANGMAO/DJDC.js, tag=DJDC",
+    "10 7 * * * https://github.com/dajijiyangmao/UFO/raw/main/HAOYANGMAO/DJGJ.js, tag=DJGJ",
+    "0 0 0 * * * https://github.com/dajijiyangmao/UFO/raw/main/HAOYANGMAO/DJMC.js, tag=DJMC",
+    "1 8,12,18 * * * https://github.com/dajijiyangmao/UFO/raw/main/HAOYANGMAO/DJMH.js, tag=DJMH",
+    "10 7 * * * https://github.com/dajijiyangmao/UFO/raw/main/HAOYANGMAO/DJNC.js, tag=DJNC",
+    "0 0 * * * https://github.com/dajijiyangmao/UFO/raw/main/HAOYANGMAO/DJSM.js tag=DJSM",
+    "2 0 * * * https://github.com/dajijiyangmao/UFO/raw/main/HAOYANGMAO/DJZD.js, tag=DJZD",
+    "2 0 * * * https://github.com/dajijiyangmao/UFO/raw/main/HAOYANGMAO/XJJC.js, tag=XJJC"
+    
+    ]
+}
