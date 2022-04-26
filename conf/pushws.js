@@ -30,7 +30,7 @@ let isGetbody = typeof $request !== 'undefined';
 
 async function GetWskey() {
 
-    if ($request && $request.url.indexOf("functionId=getNewRedMarkInfo") >= 0) {
+    if ($request && $request.url.indexOf("functionId=getNewsRedMarkInfo") >= 0) {
 
         if (typeof $request.headers !== 'undefined'){
              modifiedWskey = $request.headers;
