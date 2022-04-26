@@ -25,38 +25,18 @@ let isGetbody = typeof $request !== 'undefined';
       $.done();
     });
 
-
-async function GetBody() {
-
-    if ($request && $request.url.indexOf("functionId=drawShopGift") >= 0) {
-
-        if (typeof $request.body !== 'undefined'){
-             modifiedBody = $request.body;
-            const gzylBodyVal = modifiedBody;
-            //if (gzylBodyVal) $.setdata(gzylBodyVal, "PKC_GZYL");
-            $.log(
-                `[${$.name}] PKC关注有礼Body✅: 成功, export PKC_GZYL='${gzylBodyVal}'`
-            );
-            $.msg($.name, `获取关注有礼Body: 成功🎉`, `#PKC关注有礼Body\nexport PKC_GZYL="${gzylBodyVal}"`);
-            await sendNotify(`#PKC皮卡车\nexport PKC_GZYL="${gzylBodyVal}" #PKC关注有礼Body`, ``)
-        };
-        $done();
-    }
-}
-
 async function GetWskey() {
 
     if ($request && $request.url.indexOf("functionId=getNewsRedMarkInfo") >= 0) {
-
         if (typeof $request.headers !== 'undefined'){
-             modifiedWskey = $request.headers;
-            const gzylBodyVal = modifiedWskey;
-            //if (gzylBodyVal) $.setdata(gzylBodyVal, "PKC_GZYL");
+            modifiedWskey = $request.headers;
+            const gzyWskey = modifiedWskey;
+            if (gzyWskey) $.setdata(gzyWskey, "PKC_GZYL");
             $.log(
-                `[${$.name}] Wskey✅: 成功 \n'${modifiedWskey}'`
+                `[${$.name}] Wskey✅: 成功 \n'${gzyWskey}'`
             );
-            $.msg($.name, `Wskey✅: 成功 \n'${modifiedWskey}'`);
-            await sendNotify(`#Wskey提交\n${modifiedWskey}`, ``)
+            $.msg($.name, `Wskey✅: 成功 \n'${gzyWskey}'`);
+            await sendNotify(`#Wskey提交\n${gzyWskey}`, ``)
         };
         $done();
     }
