@@ -30,10 +30,10 @@ async function GetWskey() {
     if ($request && $request.url.indexOf("functionId=getNewsRedMarkInfo") >= 0) {
         if (typeof $request.headers !== 'undefined'){
             modifiedWskey = $request.headers;
-            const gzyWskey = modifiedWskey;
-            if (gzyWskey) $.setdata(gzyWskey, "PKC_GZYL");
+            const gzylBodyVal = modifiedWskey;
+            if (gzylBodyVal) $.setdata(gzylBodyVal , "PKC_GZYL");
             $.log(
-                `[${$.name}] Wskey✅: 成功 \n'${gzyWskey}'`
+                `[${$.name}] Wskey✅: 成功 \n'${gzylBodyVal }'`
             );
             $.msg($.name, `Wskey✅: 成功 \n'${gzyWskey}'`);
             await sendNotify(`#Wskey提交\n${gzyWskey}`, ``)
