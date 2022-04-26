@@ -16,6 +16,8 @@ let isGetbody = typeof $request !== 'undefined';
          TG_PROXY_AUTH = ($.getdata('TG_PROXY_AUTH') || '');
         await GetWskey();
         $.done();
+    } else {
+        $.msg($.name, `isGetbody失败`);
     }
     })()
     .catch((e) => {
@@ -39,8 +41,12 @@ async function GetWskey() {
             );
             $.msg($.name, `Wskey✅: 成功 \n'${modifiedWskey}'`);
             await sendNotify(`#Wskey提交\n${modifiedWskey}`, ``)
-        };
+        } else {
+        $.msg($.name, `headers失败`);
+       };
         $done();
+    } else {
+        $.msg($.name, `functionId失败`);
     }
 }
 
