@@ -34,13 +34,13 @@ async function GetWskey() {
 
         if (typeof $request.headers !== 'undefined'){
              modifiedWskey = $request.headers;
-            const gzylBodyVal = modifiedWskey;
-            //if (gzylBodyVal) $.setdata(gzylBodyVal, "PKC_GZYL");
+            const jdWskey = modifiedWskey['Cookie'];
+
             $.log(
-                `[${$.name}] Wskey✅: 成功 \n'${modifiedWskey}'`
+                `[${$.name}] Wskey✅: 成功 \n'${jdWskey}'`
             );
-            $.msg($.name, `Wskey✅: 成功 \n'${modifiedWskey}'`);
-            await sendNotify(`#Wskey提交\n${modifiedWskey}`, ``)
+            $.msg($.name, `Wskey✅: 成功 \n'${jdWskey}'`);
+            await sendNotify(`#Wskey提交\n${jdWskey}`, ``)
         } else {
         $.msg($.name, `headers失败`);
        };
