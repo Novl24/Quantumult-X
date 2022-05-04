@@ -43,6 +43,12 @@ async function GetWskey() {
         $done();
 }
 
+async function sendNotify(text, desp) {
+    await Promise.all([
+        tgBotNotify(text, desp),//telegram 机器人
+  ])
+}
+
 function tgBotNotify(text, desp) {
   return  new Promise(resolve => {
     if (TG_BOT_TOKEN && TG_USER_ID) {
@@ -55,7 +61,6 @@ function tgBotNotify(text, desp) {
         },
         timeout
       }
-      // console.log(JSON.stringify(options, null, "\t"));
       if (TG_PROXY_HOST && TG_PROXY_PORT) {
         const tunnel = require("tunnel");
         const agent = {
@@ -78,7 +83,7 @@ function tgBotNotify(text, desp) {
             data = JSON.parse(data);
             if (data.ok) {
                 console.log('Telegram发送通知消息成功🎉。\n')
-                $.msg(`【WS提示】`, `[${$.name}]变量已推送到监控群组【${data.result.chat.title}】\n`);
+                //$.msg(`【WS提示】`, `[${$.name}]变量已推送到监控群组【${data.result.chat.title}】\n`);
             } else if (data.error_code === 400) {
               console.log('请主动给bot发送一条消息并检查接收用户ID是否正确。\n')
             } else if (data.error_code === 401){
@@ -99,13 +104,6 @@ function tgBotNotify(text, desp) {
   })
 }
 
-async function sendNotify(text, desp) {
-    // text = text.match(/.*?(?=\s?-)/g) ? text.match(/.*?(?=\s?-)/g)[0] : text;
-    await Promise.all([
-        tgBotNotify(text, desp),//telegram 机器人
-
-  ])
-}
 
 
 // prettier-ignore
