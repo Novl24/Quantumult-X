@@ -29,26 +29,18 @@ let isGetbody = typeof $request !== 'undefined';
 
 
 async function GetWskey() {
-
-    if ($request && $request.url.indexOf("functionId=getNewsRedMarkInfo") >= 0) {
-
-        if (typeof $request.headers !== 'undefined'){
-             modifiedWskey = $request.headers['Cookie'];
-            const pin = modifiedWskey.match(/(pin|wskey)=.+?;/g)[0];
-            const wskey = modifiedWskey.match(/(pin|wskey)=.+?;/g)[1];
-            const pinwskey = pin+wskey;
-            $.log(
-                `[${$.name}] Wskey✅: 成功 \n'${pinwskey}'`
-            );
-            $.msg($.name, `Wskey✅: 成功 \n'${pinwskey}'`);
-            await sendNotify(`#Wskey提交\n${pinwskey}`, ``)
+        let CK = $request.headers['Cookie'] || $request.headers['cookie'];
+        const pin = CK.match(/pin=([^=;]+?);/)[1];
+        const key = CK.match(/wskey=([^=;]+?);/)[1];
+        if (!pin || !key) {
+            $.msg($.name, "未找到 wskey");
+            $.done();
         } else {
-        $.msg($.name, `headers失败`);
-       };
+            const cookie = `pt_pin=${pin};wskey=${key};`;
+            await sendNotify(`#Wskey提交\n${cookie}`, ``);
+            $.msg($.name, `Wskey✅: 成功 \n'${cookie}'`);
+        }
         $done();
-    } else {
-        $.msg($.name, `functionId失败`);
-    }
 }
 
 function tgBotNotify(text, desp) {
