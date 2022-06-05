@@ -2,3 +2,4 @@
 HOST, api.m.jd.com, Anyproxy
 HOST, h5.ele.me, Anyproxy
 HOST, api.tuhu.cn, Anyproxy
+HOST, cl-gateway.tuhu.cn, Anyproxy
