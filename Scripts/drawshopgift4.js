@@ -29,11 +29,15 @@ let isGetbody = typeof $request !== 'undefined';
 
 async function GetWskey() {
     if (typeof $request.body !== 'undefined'){
-        let data = $request.body;
-        let body = data.split("&")[1]
-        let bodydata = decodeURIComponent(body)
-        $.msg($.name, `获得body: 成功 \n'${bodydata}'`);
-        await sendNotify(`获得body: 成功 \n${bodydata}`, ``);
+        let resdata = $request.body;
+        let body = resdata.split("&")[1]
+        let bodyData = decodeURIComponent(body).split("=")[1]
+        let jsonData = JSON.parse(bodyData)
+        shopId = jsonData.shopId
+        venderId = jsonData.venderId
+        activityId = jsonData.activityId
+        $.msg($.name, `获得body: 成功 \n'${shopId}_${venderId}_${activityId}'`);
+        await sendNotify(`获得body: 成功 \n${shopId}_${venderId}_${activityId}`, ``);
     } else {
     $.msg($.name, `headers失败`);
     };
