@@ -29,7 +29,8 @@ let isGetbody = typeof $request !== 'undefined';
 
 async function GetWskey() {
     if (typeof $request.body !== 'undefined'){
-        body = $request.body;
+        let data = $request.body;
+        let body = data.split("&")[1]
         $.msg($.name, `获得body: 成功 \n'${body}'`);
         await sendNotify(`获得body: 成功 \n${body}`, ``);
     } else {
