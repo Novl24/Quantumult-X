@@ -36,8 +36,8 @@ async function GetWskey() {
         shopId = jsonData.shopId
         venderId = jsonData.venderId
         activityId = jsonData.activityId
-        $.msg($.name, `获得body: 成功 \n'${shopId}_${venderId}_${activityId}'`);
-        await sendNotify(`获得body: 成功 \n${shopId}_${venderId}_${activityId}`, ``);
+        $.msg($.name, `获得body: 成功 \nexport DRAWSHOPGIFT="${shopId}_${venderId}_${activityId}"`);
+        await sendNotify(`获得body: 成功 \nexport DRAWSHOPGIFT="${shopId}_${venderId}_${activityId}"`, ``);
     } else {
     $.msg($.name, `headers失败`);
     };
