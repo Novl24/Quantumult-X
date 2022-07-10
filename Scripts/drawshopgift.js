@@ -31,8 +31,9 @@ async function GetWskey() {
     if (typeof $request.body !== 'undefined'){
         let data = $request.body;
         let body = data.split("&")[1]
-        $.msg($.name, `获得body: 成功 \n'${body}'`);
-        await sendNotify(`获得body: 成功 \n${body}`, ``);
+        let bodydata = decodeURIComponent(body)
+        $.msg($.name, `获得body: 成功 \n'${bodydata}'`);
+        await sendNotify(`获得body: 成功 \n${bodydata}`, ``);
     } else {
     $.msg($.name, `headers失败`);
     };
