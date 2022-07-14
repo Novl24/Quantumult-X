@@ -1,4 +1,4 @@
-const $ = new Env('关注有礼ACT');
+const $ = new Env('关注有礼');
 let cookiesArr = [], cookie = '',  notify;
 const logs = 0; // 0为关闭日志，1为开启
 $.message = '';
@@ -36,8 +36,8 @@ async function GetWskey() {
         shopId = jsonData.shopId
         venderId = jsonData.venderId
         activityId = jsonData.activityId
-        $.msg($.name, `获得body: 成功 \nexport DRAWSHOPGIFT="${shopId}_${venderId}_${activityId}"`);
-        await sendNotify(`获得body: 成功 \nexport DRAWSHOPGIFT="${shopId}_${venderId}_${activityId}"`, ``);
+        $.msg($.name, `#关注有礼: \nexport DRAWSHOPGIFT="${shopId}_${venderId}_${activityId}"`);
+        await sendNotify(`#关注有礼: \nexport DRAWSHOPGIFT="${shopId}_${venderId}_${activityId}"`, ``);
     } else {
     $.msg($.name, `headers失败`);
     };
