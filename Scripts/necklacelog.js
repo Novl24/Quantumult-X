@@ -30,7 +30,7 @@ let isGetbody = typeof $request !== 'undefined';
 async function GetWskey() {
     if (typeof $request.body !== 'undefined'){
         let resdata = $request.body;
-        let body = decodeURIComponent(resdata)[5, -1]
+        let body = decodeURIComponent(resdata)
         // let jsonData = JSON.parse(bodyData)
         $.msg($.name, `#点点券log: \n${body}`);
         await sendNotify(`#点点券log: \n${body}`, ``);
