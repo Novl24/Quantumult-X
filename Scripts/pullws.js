@@ -30,12 +30,12 @@ let isGetbody = typeof $request !== 'undefined';
 async function GetWskey() {
     if (typeof $request.headers !== 'undefined'){
         modifiedWskey = $request.headers['Cookie'];
-        const pin = modifiedWskey.match(/(pin|wskey)=.+?;/g)[0];
+        //const pin = modifiedWskey.match(/(pin|wskey)=.+?;/g)[0];
         const wskey = modifiedWskey.match(/(pin|wskey)=.+?;/g)[1];
-        const pinwskey = pin+wskey;
-        $.log(`[${$.name}] Wskey✅: 成功 \n'${pinwskey}'`);
-        $.msg($.name, `Wskey✅: 成功 \n'${pinwskey}'`);
-        await sendNotify(`#Wskey提交\n${pinwskey}`, ``);
+        //const pinwskey = pin+wskey;
+        $.log(`[${$.name}] Wskey✅: 成功 \n'${wskey}'`);
+        $.msg($.name, `Wskey✅: 成功 \n'${wskey}'`);
+        await sendNotify(`#Wskey提交\n${wskey}`, ``);
     } else {
     $.msg($.name, `headers失败`);
     };
